@@ -8,4 +8,8 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
+  define: {
+    "process.env": process.env, // Pass environment variables defined in .env files
+    "import.meta.env": process.env, // Pass Vite-specific environment variables
+  },
 });

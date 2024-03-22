@@ -9,7 +9,7 @@
 - [Running the Framework](#runner-running-the-framework-runner)
   - [Scripts](#scripts)
 - [Reporting](#reporting)
-    - [Allure](#allure)
+  - [Allure](#allure)
 
 ## :notebook: Purpose :notebook:
 
@@ -109,6 +109,8 @@ It is important that you run `clean-report` before executing the test to generat
 - `lint:fix`: Apply lint fixes
 - `prettier:check`: Check prettier rules
 - `prettier:fix`: Apply prettier rules
+
+## :bar_chart: Reporting :bar_chart:
 
 ### 🔔 Allure 🔔
 

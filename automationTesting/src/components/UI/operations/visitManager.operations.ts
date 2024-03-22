@@ -35,7 +35,7 @@ class VisitManagerOperations {
         await createOrEditVisitModal.createOrEditBtn.click();
     }
 
-    async moveCardToStatus(address: string, status: string) {
+    async changeCardStatusTo(address: string, status: string) {
         await visitManagerPage.refreshPage();
         const card = await visitManagerPage.getCardByAddress(address);
         await visitCardComp.getCardEditBtn(card).moveTo();

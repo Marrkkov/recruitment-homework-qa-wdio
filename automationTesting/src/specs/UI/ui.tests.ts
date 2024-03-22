@@ -44,7 +44,7 @@ describe('UI Tests', async function () {
 
         await timedStep('Validate card was created', () => visitManagerAssertions.validateCardIsPresent(address, visitorName, houmerName, 'PENDING'));
 
-        await timedStep('Move created card to Complete', () => visitManagerOperations.moveCardToStatus(address, 'COMPLETED'));
+        await timedStep('Move created card to Complete', () => visitManagerOperations.changeCardStatusTo(address, 'COMPLETED'));
         await timedStep('Validate card is in Complete Section', () => visitManagerAssertions.validateCardIsPresent(address, visitorName, houmerName, 'COMPLETED'));
     });
 
@@ -62,7 +62,7 @@ describe('UI Tests', async function () {
 
         await timedStep('Validate card was created', () => visitManagerAssertions.validateCardIsPresent(address, visitorName, houmerName, 'PENDING'));
 
-        await timedStep('Move created card to Complete', () => visitManagerOperations.moveCardToStatus(address, 'CANCELED'));
+        await timedStep('Move created card to Complete', () => visitManagerOperations.changeCardStatusTo(address, 'CANCELED'));
 
         await timedStep('Validate card is in Complete Section', () => visitManagerAssertions.validateCardIsPresent(address, visitorName, houmerName, 'CANCELED'));
     });

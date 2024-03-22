@@ -1,8 +1,7 @@
-import { createVisitModal } from "../pageObjects/modals/createVisit.modal";
+import { visitCardComp } from "../pageObjects/composite/card.comp";
+import { createOrEditVisitModal } from "../pageObjects/modals/createEditVisit.modal";
 import { visitManagerPage } from "../pageObjects/pages/visitManager.page";
-import { Key } from 'webdriverio'
-
-
+import { Key } from "webdriverio"
 
 class VisitManagerOperations {
     
@@ -12,29 +11,44 @@ class VisitManagerOperations {
     };
 
     async setAddress(adress: string) {
-        await createVisitModal.adress.waitForDisplayed();
-        await createVisitModal.adress.setValue(adress);
+        await createOrEditVisitModal.adress.waitForDisplayed();
+        await createOrEditVisitModal.adress.setValue(adress);
     }
 
     async setVisitorName(visitorName: string) {
-        await createVisitModal.visitorName.waitForDisplayed();
-        await createVisitModal.visitorName.setValue(visitorName);
+        await createOrEditVisitModal.visitorName.waitForDisplayed();
+        await createOrEditVisitModal.visitorName.setValue(visitorName);
     }
 
     async setHoumerName(houmerName: string) {
-        await createVisitModal.houmerName.waitForDisplayed();
-        await createVisitModal.houmerName.setValue(houmerName);
+        await createOrEditVisitModal.houmerName.waitForDisplayed();
+        await createOrEditVisitModal.houmerName.setValue(houmerName);
     }
 
     async setScheduleTime(date: string, hour: string) {
-        await createVisitModal.scheduledTime.waitForDisplayed();
-        await createVisitModal.scheduledTime.setValue(date);
+        await createOrEditVisitModal.scheduledTime.waitForDisplayed();
+        await createOrEditVisitModal.scheduledTime.setValue(date);
         await browser.keys([Key.Tab]);
-        await createVisitModal.scheduledTime.setValue(hour);
+        await createOrEditVisitModal.scheduledTime.setValue(hour);
     }
 
     async clickCreateVisitSubmitBtn() {
-        await createVisitModal.createBtn.click();
+        await createOrEditVisitModal.createOrEditBtn.click();
+    }
+
+    async moveCardToStatus(address: string, status: string) {
+        await visitManagerPage.refreshPage();
+        const card = await visitManagerPage.getCardByAddress(address);
+        await visitCardComp.getCardEditBtn(card).moveTo();
+        await visitCardComp.getCardEditBtn(card).waitForClickable();
+        await visitCardComp.getCardEditBtn(card).click();
+        await createOrEditVisitModal.statusDropdown.waitForDisplayed();
+        await createOrEditVisitModal.statusDropdown.click();
+        await createOrEditVisitModal.getSelectDropdownStatus(status).click();
+        await createOrEditVisitModal.resolutionComment.waitForDisplayed();
+        await createOrEditVisitModal.resolutionComment.setValue("DONE!!");
+        await createOrEditVisitModal.createOrEditBtn.click();
+        await visitManagerPage.createVisitButton.waitForClickable();
     }
 
 }

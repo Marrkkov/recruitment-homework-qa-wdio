@@ -1,4 +1,4 @@
-class CreateVisitModal {
+class CreateOrEditVisitModal {
 
     get adress() {
         return $("input[name='address']");
@@ -20,14 +20,26 @@ class CreateVisitModal {
         return $("button[class*='bg-neutral']");
     }
 
-    get createBtn() {
+    get createOrEditBtn() {
         return $("button[type='submit']");
     }
+
+    get statusDropdown() {
+        return $("select");
+    }
+
+    get resolutionComment() {
+        return $("input[name='resolution_comment']");
+    };
 
     get missingInputErrorMsg() {
         return $("p[class*='text-sm text-red'");
     }
 
+    getSelectDropdownStatus(status: string) {
+        return $(`option[value='${status}']`);
+    }
+
 }
 
-export const createVisitModal = new CreateVisitModal();
+export const createOrEditVisitModal = new CreateOrEditVisitModal();

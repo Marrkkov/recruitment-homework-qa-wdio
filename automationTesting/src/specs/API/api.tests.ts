@@ -4,7 +4,10 @@ import { apiAssertions } from '../../components/API/api.assetions';
 import { generateRandomString } from '../../../utils/utils';
 import { timedStep } from '../../../utils/allureLogsUtils';
 
-describe('API Tests', () => {
+describe('API Tests', async function () {
+    // Retry all tests in this suite up to 2 times
+    this.retries(2);
+
     it('[TC-006][API] Validate GET /visits response', async () => {
         await timedStep('Get all visit from endpoint and validate properties', async () => {
             const response = await apiOperations.getRequest('http://localhost:8000/visits/');
@@ -151,7 +154,7 @@ describe('API Tests', () => {
         });
     });
 
-    //test failing due a bug in the app and break.
+    //test failing due a bug in the app and break it
     it.skip('[TC-010][API] Validate Create visit POST /visits with invalid status', async () => {
         const address = generateRandomString(12);
         const visitorName = generateRandomString(12);

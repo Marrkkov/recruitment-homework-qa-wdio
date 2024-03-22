@@ -34,7 +34,7 @@ In order to use the automation framework you'll need to install the following:
 
 - Install the app backend following this: Backend [docs](./../backend/README.md)
 
-- Install the app frontend following this: Backend [docs](./../web/README.md)
+- Install the app frontend following this: Frontend [docs](./../web/README.md)
 
 - Go to the AutomationTesting folder (`cd automationTesting`) and Install Node Modules (`npm i` or `npm install`)
 
@@ -86,7 +86,7 @@ The following is a brief description of each NPM library and what it does/how we
 
 Before you're ready to run any of the scripts, you need to do the following:
 - Launch the backend in a new terminal following this: Backend [docs](./../backend/README.md)
-- Launch the frontend in a new terminal following this: Backend [docs](./../web/README.md)
+- Launch the frontend in a new terminal following this: Frontend [docs](./../web/README.md)
 
 It is imperative that you do these steps or you **will** run into issues trying to use the framework.
 

@@ -114,6 +114,6 @@ It is importat that you run `clean-report` before execute the test to generate a
 
 Allure is used in this framework. Once you've executed a test(s) an .xml file will be generated under the output folder. You can then use the `generate-report` command to generate an HTML report and then open it with `open-report` command. Below is an example of what that report looks like. You have everything from test execution time, to graphs with test history, filtering for specific tests, to category breakdowns.
 
-![example report](https://imgur.com/IQRVkQc)
+![example report](https://i.imgur.com/IQRVkQc.png)
 
-![example report](https://imgur.com/uCNN5GQ)
+![example report](https://i.imgur.com/uCNN5GQ.png)

@@ -1,4 +1,4 @@
-import type { Options } from '@wdio/types'
+import type { Options } from '@wdio/types';
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -10,10 +10,10 @@ export const config: Options.Testrunner = {
         autoCompile: true,
         tsNodeOpts: {
             project: './tsconfig.json',
-            transpileOnly: true
-        }
+            transpileOnly: true,
+        },
     },
-    
+
     //
     // ==================
     // Specify Test Files
@@ -30,12 +30,8 @@ export const config: Options.Testrunner = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: [
-        './../src/specs/UI/*.ts',
-        './../src/specs/API/*.ts'
-    ],
-    suites: {
-    },
+    specs: ['./../src/specs/UI/*.ts', './../src/specs/API/*.ts'],
+    suites: {},
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -68,11 +64,13 @@ export const config: Options.Testrunner = {
         'moz:firefoxOptions': {
             args: ['-headless']
         }*/
-        {browserName: 'chrome',
-        'goog:chromeOptions': {
-        args: ['disable-gpu']
-        }
-    }],
+        {
+            browserName: 'chrome',
+            'goog:chromeOptions': {
+                args: ['disable-gpu'],
+            },
+        },
+    ],
     //
     // ===================
     // Test Configurations
@@ -124,7 +122,7 @@ export const config: Options.Testrunner = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -151,14 +149,14 @@ export const config: Options.Testrunner = {
             'spec',
             {
                 showPreface: false,
-            }
-        ]
+            },
+        ],
     ],
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
     },
 
     //
@@ -231,10 +229,7 @@ export const config: Options.Testrunner = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    beforeTest: async function (test, context) {
-        await browser.setWindowSize(1920, 1000);
-        await browser.url("http://localhost:5173/");
-    },
+    beforeTest: async function () {},
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -257,12 +252,12 @@ export const config: Options.Testrunner = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-        afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-            if(error) {
-                await browser.takeScreenshot();
-                await browser.reloadSession();
-            }
-        },
+    afterTest: async function (test, context, { error }) {
+        if (error) {
+            await browser.takeScreenshot();
+            await browser.reloadSession();
+        }
+    },
 
     /**
      * Hook that gets executed after the suite has ended
@@ -307,22 +302,22 @@ export const config: Options.Testrunner = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {string} oldSessionId session ID of the old session
-    * @param {string} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {string} oldSessionId session ID of the old session
+     * @param {string} newSessionId session ID of the new session
+     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
     /**
-    * Hook that gets executed before a WebdriverIO assertion happens.
-    * @param {object} params information about the assertion to be executed
-    */
+     * Hook that gets executed before a WebdriverIO assertion happens.
+     * @param {object} params information about the assertion to be executed
+     */
     // beforeAssertion: function(params) {
     // }
     /**
-    * Hook that gets executed after a WebdriverIO assertion happened.
-    * @param {object} params information about the assertion that was executed, including its results
-    */
+     * Hook that gets executed after a WebdriverIO assertion happened.
+     * @param {object} params information about the assertion that was executed, including its results
+     */
     // afterAssertion: function(params) {
     // }
-}
+};

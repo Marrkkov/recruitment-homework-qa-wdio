@@ -4,12 +4,7 @@
         "moduleResolution": "node",
         "module": "commonjs",
         "target": "es2021",
-        "types": [
-            "node",
-            "@wdio/globals/types",
-            "expect-webdriverio",
-            "@wdio/mocha-framework"
-        ],
+        "types": ["node", "@wdio/globals/types", "expect-webdriverio", "@wdio/mocha-framework"]
     },
     "exclude": ["node_modules"]
 }

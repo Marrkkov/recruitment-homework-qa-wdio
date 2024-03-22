@@ -1,0 +1,15 @@
+node_modules
+.github
+allure
+*.xml
+*.js
+README.md
+allure-results
+.vscode
+resources
+.husky
+.prettierignore
+.eslintrc
+.eslintignore
+.env.example
+.gitignore

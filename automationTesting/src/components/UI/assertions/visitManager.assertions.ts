@@ -1,10 +1,7 @@
-import { createOrEditVisitModal } from "../pageObjects/modals/createEditVisit.modal";
-import { visitManagerPage } from "../pageObjects/pages/visitManager.page";
-
-
+import { createOrEditVisitModal } from '../pageObjects/modals/createEditVisit.modal';
+import { visitManagerPage } from '../pageObjects/pages/visitManager.page';
 
 class VisitManagerAssertions {
-    
     async validateInputErrorMsg(error: string) {
         expect(await createOrEditVisitModal.missingInputErrorMsg.isDisplayed()).toEqual(true);
         const errorMsg = await createOrEditVisitModal.missingInputErrorMsg.getText();
@@ -24,8 +21,8 @@ class VisitManagerAssertions {
         const cardText = await card.getText();
         expect(await card.isExisting()).toEqual(true);
         expect(cardText).toContain(adress);
-        expect(cardText).toContain('Visitor: '+ visitorName);
-        expect(cardText).toContain('Houmer: '+ houmerName);
+        expect(cardText).toContain('Visitor: ' + visitorName);
+        expect(cardText).toContain('Houmer: ' + houmerName);
     }
 }
 

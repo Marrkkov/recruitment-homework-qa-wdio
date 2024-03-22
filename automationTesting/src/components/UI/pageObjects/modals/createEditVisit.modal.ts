@@ -1,5 +1,4 @@
 class CreateOrEditVisitModal {
-
     get adress() {
         return $("input[name='address']");
     }
@@ -25,12 +24,12 @@ class CreateOrEditVisitModal {
     }
 
     get statusDropdown() {
-        return $("select");
+        return $('select');
     }
 
     get resolutionComment() {
         return $("input[name='resolution_comment']");
-    };
+    }
 
     get missingInputErrorMsg() {
         return $("p[class*='text-sm text-red'");
@@ -39,7 +38,6 @@ class CreateOrEditVisitModal {
     getSelectDropdownStatus(status: string) {
         return $(`option[value='${status}']`);
     }
-
 }
 
 export const createOrEditVisitModal = new CreateOrEditVisitModal();

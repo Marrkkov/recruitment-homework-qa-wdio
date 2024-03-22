@@ -1,14 +1,13 @@
-import { visitCardComp } from "../pageObjects/composite/card.comp";
-import { createOrEditVisitModal } from "../pageObjects/modals/createEditVisit.modal";
-import { visitManagerPage } from "../pageObjects/pages/visitManager.page";
-import { Key } from "webdriverio"
+import { visitCardComp } from '../pageObjects/composite/card.comp';
+import { createOrEditVisitModal } from '../pageObjects/modals/createEditVisit.modal';
+import { visitManagerPage } from '../pageObjects/pages/visitManager.page';
+import { Key } from 'webdriverio';
 
 class VisitManagerOperations {
-    
     async openCreateVisitModal() {
         await visitManagerPage.createVisitButton.waitForClickable();
         await visitManagerPage.createVisitButton.click();
-    };
+    }
 
     async setAddress(adress: string) {
         await createOrEditVisitModal.adress.waitForDisplayed();
@@ -46,11 +45,10 @@ class VisitManagerOperations {
         await createOrEditVisitModal.statusDropdown.click();
         await createOrEditVisitModal.getSelectDropdownStatus(status).click();
         await createOrEditVisitModal.resolutionComment.waitForDisplayed();
-        await createOrEditVisitModal.resolutionComment.setValue("DONE!!");
+        await createOrEditVisitModal.resolutionComment.setValue('DONE!!');
         await createOrEditVisitModal.createOrEditBtn.click();
         await visitManagerPage.createVisitButton.waitForClickable();
     }
-
 }
 
 export const visitManagerOperations = new VisitManagerOperations();

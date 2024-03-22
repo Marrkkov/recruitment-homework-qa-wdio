@@ -1,64 +1,62 @@
 class VisitManagerPage {
-
     get title() {
-        return $("h1");
+        return $('h1');
     }
 
     get createVisitButton() {
-        return $("button")
+        return $('button');
     }
 
-    get pendingCards(){
+    get pendingCards() {
         return $$("[class='w-56 shrink-0']")[0];
     }
 
-    get delayedCards(){
+    get delayedCards() {
         return $$("[class='w-56 shrink-0']")[1];
     }
 
-    get inProgressCards(){
+    get inProgressCards() {
         return $$("[class='w-56 shrink-0']")[2];
     }
 
-    get canceledCards(){
+    get canceledCards() {
         return $$("[class='w-56 shrink-0']")[3];
     }
 
-    get completeCards(){
+    get completeCards() {
         return $$("[class='w-56 shrink-0']")[4];
     }
 
-
-    async getLatestPendingCard(){
+    async getLatestPendingCard() {
         const cards = await this.pendingCards.$$("[class*='cursor-pointer rounded']");
         const cardsLength = await cards.length;
         return cards[cardsLength - 1];
     }
 
-    async getLatestCompleteCard(){
+    async getLatestCompleteCard() {
         const cards = await this.completeCards.$$("[class*='cursor-pointer rounded']");
         const cardsLength = await cards.length;
         return cards[cardsLength - 1];
     }
 
-    async getLatestCanceledCard(){
+    async getLatestCanceledCard() {
         const cards = await this.canceledCards.$$("[class*='cursor-pointer rounded']");
         const cardsLength = await cards.length;
         return cards[cardsLength - 1];
     }
 
-    async getCardByAddress(address: string){
+    async getCardByAddress(address: string) {
         const cards = await $$("[class*='cursor-pointer rounded']");
         for (const card of cards) {
             const cardText = await card.getText();
             if (cardText.includes(address)) {
-                return card; 
+                return card;
             }
         }
         throw new Error(`No card with address '${address}' found.`);
     }
 
-    async refreshPage(){
+    async refreshPage() {
         await browser.refresh();
         await visitManagerPage.createVisitButton.waitForClickable();
     }

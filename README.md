@@ -4,3 +4,4 @@ For instructions on how to get started running the frontend and backend for this
 
 - Frontend [docs](./web/README.md)
 - Backend [docs](./backend/README.md)
+- AutomationFramework [docs](./automationTesting/README.md)

@@ -1,0 +1,7 @@
+**/*.json
+**/*.js
+node_modules
+README.md
+*.json
+*.conf.ts
+*.schemas.ts

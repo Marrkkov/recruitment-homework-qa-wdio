@@ -8,8 +8,8 @@
 - [Dependencies](#toolbox-dependencies-toolbox)
 - [Running the Framework](#runner-running-the-framework-runner)
   - [Scripts](#scripts)
-- [Reporting](#reporting)
-  - [Allure](#allure)
+- [Reporting](#bar_chart-Reporting-bar_chart)
+  - [Allure](#bell-Allure-bell)
 
 ## :notebook: Purpose :notebook:
 
@@ -112,7 +112,7 @@ It is important that you run `clean-report` before executing the test to generat
 
 ## :bar_chart: Reporting :bar_chart:
 
-### 🔔 Allure 🔔
+### :bell: Allure :bell:
 
 Allure is used in this framework. After executing a test(s), an .xml file will be generated under the output folder. You can then use the `generate-report` command to create an HTML report and open it with the `open-report` command. Below is an example of what that report looks like. It includes test execution time, graphs with test history, filtering for specific tests, and category breakdowns.
 
